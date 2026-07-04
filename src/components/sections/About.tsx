@@ -41,6 +41,9 @@ export function About() {
                 Vineeth Vinil T is a passionate keyboard artist and music producer from Trivandrum with over seven years of experience in music.
               </p>
               <p>
+                Alongside his musical journey, he is a dedicated B.Sc Cardiac Care Technology student at SDUMC, Tamaka. With a strong passion for cardiac care, innovation, and medical technology, he is keenly interested in pursuing an MSc in Cardiac Catheterization in the future.
+              </p>
+              <p>
                 From performing with renowned musical groups such as <span className="text-white font-medium">Arjuna Bhajans</span>, <span className="text-white font-medium">Ragalaya</span>, and the college band <span className="text-white font-medium">Fifth Harmony</span> to creating music in the studio using FL Studio and Logic Pro, he combines technical precision with artistic creativity to deliver memorable musical experiences.
               </p>
             </div>
