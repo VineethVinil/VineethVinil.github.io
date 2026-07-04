@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+
+  --color-brand-bg: #1A1A1A;
+  --color-brand-card: #222222;
+  --color-brand-primary: #F8F8F8;
+  --color-brand-secondary: #A0A0A0;
+  --color-brand-accent-blue: #00BFFF;
+  --color-brand-accent-purple: #6C63FF;
+}
+
+@font-face {
+  font-family: 'quivert';
+  src: url('fonts/Quivert.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-brand-bg text-brand-primary font-sans antialiased selection:bg-brand-accent-blue/30 selection:text-brand-accent-blue;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-medium tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+  }
+  
+  .glass-card {
+    @apply bg-brand-card/60 backdrop-blur-md border border-white/5 rounded-2xl shadow-xl;
+  }
+  
+  .film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-accent-blue via-[#FFFFFF] to-brand-accent-blue;
+  }
+
+  /* Audio equalizer animation */
+  @keyframes equalize {
+    0% { height: 4px; }
+    50% { height: 16px; }
+    100% { height: 4px; }
+  }
+  .equalizer-bar {
+    animation: equalize 1s ease-in-out infinite;
+  }
+  .equalizer-bar:nth-child(1) { animation-delay: 0.1s; }
+  .equalizer-bar:nth-child(2) { animation-delay: 0.3s; }
+  .equalizer-bar:nth-child(3) { animation-delay: 0.0s; }
+  .equalizer-bar:nth-child(4) { animation-delay: 0.4s; }
+  .equalizer-bar:nth-child(5) { animation-delay: 0.2s; }
+}
+
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
