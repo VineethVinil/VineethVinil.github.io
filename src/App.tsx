@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/sections/Hero';
@@ -15,6 +15,14 @@ import { Socials } from './components/sections/Socials';
 import { Contact } from './components/sections/Contact';
 
 function App() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.05;
+    }
+  }, []);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -41,6 +49,7 @@ function App() {
   return (
     <>
       <div className="film-grain" />
+      <audio ref={audioRef} src="/Music/Before_The_Sun.mp3" autoPlay loop />
       <Navigation />
       
       <main>
