@@ -8,7 +8,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-brand-bg opacity-90 z-10" />
         <div 
-          className="absolute inset-0 bg-[url('Photos/Bg.png')] 
+          className="absolute inset-0 bg-[url('/Photos/Bg.png')] 
           bg-cover bg-center bg-no-repeat opacity-100" 
         />
         {/* Soft lighting effects */}
@@ -77,7 +77,7 @@ export function Hero() {
         >
           <a
             href="#gallery"
-            onClick={(e) => { e.preventDefault(); document.querySelector('#gallery')?.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="px-8 py-4 bg-white text-brand-bg font-semibold rounded-full hover:bg-brand-accent-blue transition-colors duration-300 flex items-center gap-2 group"
           >
             View Portfolio

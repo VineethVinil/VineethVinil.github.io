@@ -5,17 +5,23 @@ const education = [
   {
     school: 'Nazareth Home School, Balaramapuram',
     degree: 'High School',
-    year: '',
+    year: '2020-2021',
+    current: false,
+    content: '',
   },
   {
     school: 'DR GR Public School, Neyyattinkara',
     degree: 'Higher Secondary',
-    year: '',
+    year: '2021-2023',
+    current: false,
+    content: '',
   },
   {
     school: 'SDUMC, Tamaka',
     degree: 'B.Sc Cardiac Care Technology',
-    year: '',
+    year: '2023-Present',
+    current: true,
+    content: 'Developing expertise in cardiac diagnostics, patient monitoring, ECG, echocardiography, cath lab procedures, and critical cardiac care through academic training and hands-on clinical exposure.',
   },
 ];
 
@@ -60,9 +66,15 @@ export function Education() {
                   index % 2 === 0 ? 'md:pl-12 text-left' : 'md:pr-12 md:text-right text-left'
                 }`}>
                   <div className="glass-card p-6 group hover:-translate-y-1 transition-all duration-300 hover:border-brand-accent-blue/30">
-                    <h3 className="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-accent-blue transition-colors">{item.school}</h3>
+                    <div className="flex justify-between items-start gap-4">
+                      <h3 className="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-accent-blue transition-colors">{item.school}</h3>
+                      {item.current && (
+                        <span className="px-3 py-1 bg-brand-accent-blue/20 text-brand-accent-blue text-xs font-bold rounded-full uppercase tracking-wider shrink-0 mt-1">Current</span>
+                      )}
+                    </div>
                     <p className="text-brand-secondary">{item.degree}</p>
                     {item.year && <p className="text-sm text-brand-accent-blue/70 mt-2">{item.year}</p>}
+                    {item.content && <p className="text-sm text-gray-400 mt-4 leading-relaxed">{item.content}</p>}
                   </div>
                 </div>
               </motion.div>

@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: 'quivert';
-  src: url('fonts/Quivert.ttf') format('truetype');
+  src: url('/fonts/Quivert.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@
   }
   
   body {
-    @apply bg-brand-bg text-brand-primary font-sans antialiased selection:bg-brand-accent-blue/30 selection:text-brand-accent-blue;
+    @apply bg-brand-bg text-brand-primary font-sans antialiased selection:bg-brand-accent-blue/30 selection:text-brand-accent-blue overflow-x-hidden;
     text-rendering: optimizeLegibility;
   }
 

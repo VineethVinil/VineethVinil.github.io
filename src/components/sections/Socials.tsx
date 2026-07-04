@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Camera, PlayCircle, Ghost } from 'lucide-react';
+import { Camera, PlayCircle, GitBranch, Briefcase, MessageCircle } from 'lucide-react';
 
 const socials = [
   {
@@ -15,10 +15,22 @@ const socials = [
     color: 'hover:text-red-500 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)]'
   },
   {
-    name: 'Snapchat',
-    icon: <Ghost size={32} />,
-    href: 'https://www.snapchat.com/add/vnethhh?share_id=pT6qC47N9m0&locale=en-IN',
-    color: 'hover:text-yellow-400 hover:border-yellow-400/50 hover:shadow-[0_0_30px_rgba(250,204,21,0.2)]'
+    name: 'GitHub',
+    icon: <GitBranch size={32} />,
+    href: 'https://github.com/VineethVinil',
+    color: 'hover:text-white hover:border-white/50 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]'
+  },
+  {
+    name: 'LinkedIn',
+    icon: <Briefcase size={32} />,
+    href: 'https://www.linkedin.com/in/Vineeethvinil',
+    color: 'hover:text-blue-500 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]'
+  },
+  {
+    name: 'WhatsApp',
+    icon: <MessageCircle size={32} />,
+    href: 'https://wa.me/919539123223',
+    color: 'hover:text-green-500 hover:border-green-500/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)]'
   }
 ];
 
@@ -38,7 +50,7 @@ export function Socials() {
           <div className="w-24 h-1 bg-brand-accent-blue mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {socials.map((social, idx) => (
             <motion.a
               key={social.name}
@@ -49,7 +61,7 @@ export function Socials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`glass-card p-12 flex flex-col items-center justify-center gap-6 text-brand-secondary transition-all duration-300 group ${social.color}`}
+              className={`glass-card w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.33rem)] lg:w-[calc(20%-1.6rem)] p-8 flex flex-col items-center justify-center gap-6 text-brand-secondary transition-all duration-300 group ${social.color}`}
             >
               <div className="transform group-hover:scale-110 transition-transform duration-300">
                 {social.icon}

@@ -6,19 +6,22 @@ const testimonials = [
     quote: "Vineeth is a phenomenal young talent who possesses a deep, intuitive understanding of music. His exceptional ability to transcribe and play back musical content from day one marks him as a truly standout keyboardist.",
     author: "Arjun Gopan",
     role: "Mentor",
-    image: "/Photos/mentor.png"
+    image: "/Photos/mentor.png",
+    imageRight: false
   },
   {
     quote: "Meet Vineeth, an exceptionally talented keyboardist whose innate musicality sets him apart. From the very beginning of his studies, he has demonstrated the rare ability to effortlessly transcribe complex musical content directly onto the keys.",
     author: "Abhirag",
     role: "Violinist",
-    image: "/Photos/abhirag.png"
+    image: "/Photos/abhirag.png",
+    imageRight: true
   },
   {
     quote: "His musical instincts, solid timing, and ability to pick up and play just about anything make performing with him an absolute pleasure.",
     author: "Amal krishna",
     role: "Percussionist",
-    image: "/Photos/amal.png"
+    image: "/Photos/amal.png",
+    imageRight: false
   }
 ];
 
@@ -48,14 +51,14 @@ export function Testimonials() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className={`w-full ${
                 test.image
-                  ? "max-w-4xl flex flex-col md:flex-row overflow-hidden p-0"
-                  : "md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] p-10"
+                  ? `max-w-4xl flex flex-col ${test.imageRight ? 'md:flex-row-reverse' : 'md:flex-row'} overflow-hidden p-0`
+                  : "md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] p-6 md:p-10"
               } glass-card relative group hover:border-brand-accent-blue/30 transition-all duration-300`}
             >
               {test.image ? (
                 <>
-                  {/* Left: Image Section */}
-                  <div className="w-full md:w-2/5 relative min-h-[300px] md:min-h-[400px] bg-white/5 border-b md:border-b-0 md:border-r border-white/5 flex items-center justify-center">
+                  {/* Image Section */}
+                  <div className={`w-full md:w-2/5 relative min-h-[300px] md:min-h-[400px] bg-white/5 border-b md:border-b-0 ${test.imageRight ? 'md:border-l' : 'md:border-r'} border-white/5 flex items-center justify-center`}>
                     <img 
                       src={test.image} 
                       alt={test.author} 
@@ -73,12 +76,12 @@ export function Testimonials() {
                     </div>
                   </div>
 
-                  {/* Right: Quote Section */}
-                  <div className="w-full md:w-3/5 p-10 flex flex-col justify-center relative bg-black/20">
-                    <Quote size={40} className="text-brand-accent-blue/20 absolute top-6 left-6" />
+                  {/* Quote Section */}
+                  <div className="w-full md:w-3/5 p-6 md:p-10 flex flex-col justify-center relative bg-black/20">
+                    <Quote size={30} className="text-brand-accent-blue/20 absolute top-4 left-4 md:top-6 md:left-6 md:w-10 md:h-10" />
                     
-                    <div className="relative z-10 pt-4">
-                      <p className="text-white text-lg italic leading-relaxed text-left">
+                    <div className="relative z-10 pt-4 md:pt-6">
+                      <p className="text-white text-base md:text-lg italic leading-relaxed text-left">
                         "{test.quote}"
                       </p>
                     </div>
